@@ -114,7 +114,7 @@ public class JSON {
         return JSON(this, index)
     }
 
-    private fun <T> getValue(fromParentObject: (JSONObject, String) -> T?, fromParentArray: (JSONArray, Int) -> T?): T? {
+    private fun <T: Any> getValue(fromParentObject: (JSONObject, String) -> T?, fromParentArray: (JSONArray, Int) -> T?): T? {
         try {
             if (name is String) {
                 val jsonObject = parent?.getJSONObject()
