@@ -89,7 +89,7 @@ public class JSON {
     public constructor(value: List<JSON>) : this(("[" + value.map { it.rawString() ?: "" /* will create illegal JSON String */ }.join(",") + "]").toByteArray(Charsets.UTF_8)) {
     }
 
-    public constructor(value: Map<String, JSON>) : this(("{" + value.map { JSONObject.quote(it.key) + ":" + it.value.rawString() ?: "" }.join(",") + "}").toByteArray(Charsets.UTF_8)) {
+    public constructor(value: Map<String, JSON>) : this(("{" + value.map { JSONObject.quote(it.key) + ":" + it.value.rawString() }.join(",") + "}").toByteArray(Charsets.UTF_8)) {
     }
 
     private constructor(parent: JSON, name: String) {
